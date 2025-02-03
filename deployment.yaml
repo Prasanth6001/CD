@@ -1,21 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-project
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: nginx-project
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-app
-  labels:
-    app: python-app
+  name: nginx-project
 spec:
-  replicas: 1  # Number of pod replicas
+  replicas: 2
   selector:
     matchLabels:
-      app: python-app
+      app: nginx-project
   template:
     metadata:
       labels:
-        app: python-app
+        app: nginx-project
     spec:
       containers:
-      - name: python-app
-        image: 864981728406.dkr.ecr.ap-south-1.amazonaws.com/testing/my-flask-app:latest  # Replace with your Docker image
-        ports:
-        - containerPort: 5000  # Port your application listens on
+        - name: nginx
+          image: 864981728406.dkr.ecr.ap-south-1.amazonaws.com/testing/my-flask-app:latest
+          ports:
+            - containerPort: 80
