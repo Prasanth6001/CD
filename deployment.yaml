@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: your-docker-registry/python-app:latest  # Replace with your Docker image
+        image: 864981728406.dkr.ecr.ap-south-1.amazonaws.com/testing/my-flask-app:latest  # Replace with your Docker image
         ports:
         - containerPort: 5000  # Port your application listens on
