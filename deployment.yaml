@@ -25,6 +25,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: 864981728406.dkr.ecr.ap-south-1.amazonaws.com/testing/my-flask-app:latest
+          image: 864981728406.dkr.ecr.ap-south-1.amazonaws.com/testing/my-flask-app:latest###
           ports:
             - containerPort: 80 #this is sample
